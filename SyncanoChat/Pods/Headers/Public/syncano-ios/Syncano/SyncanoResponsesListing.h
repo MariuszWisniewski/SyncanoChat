@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Responses/SyncanoResponsesListing.h

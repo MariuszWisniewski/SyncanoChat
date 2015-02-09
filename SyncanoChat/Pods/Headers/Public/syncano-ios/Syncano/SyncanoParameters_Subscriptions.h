@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Parameters/Subscriptions/SyncanoParameters_Subscriptions.h

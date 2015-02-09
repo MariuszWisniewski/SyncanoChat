@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Parameters/Folders/SyncanoParameters_Folders.h

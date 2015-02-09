@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Responses/Administrators/SyncanoResponse_Administrators.h

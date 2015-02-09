@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Parameters/SyncanoParameters_Private.h

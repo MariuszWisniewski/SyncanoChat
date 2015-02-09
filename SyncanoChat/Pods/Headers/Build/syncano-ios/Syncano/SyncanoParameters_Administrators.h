@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Parameters/Administrators/SyncanoParameters_Administrators.h

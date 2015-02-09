@@ -1,0 +1,5 @@
+#include "Pods-SyncanoChat-JSQMessagesViewController.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/JSQMessagesViewController" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CocoaAsyncSocket" "${PODS_ROOT}/Headers/Public/JSQMessagesViewController" "${PODS_ROOT}/Headers/Public/JSQSystemSoundPlayer" "${PODS_ROOT}/Headers/Public/Mantle" "${PODS_ROOT}/Headers/Public/syncano-ios" "${PODS_ROOT}/Headers/Public/syncano-ios/Syncano"
+OTHER_LDFLAGS = ${PODS_SYNCANOCHAT_JSQMESSAGESVIEWCONTROLLER_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

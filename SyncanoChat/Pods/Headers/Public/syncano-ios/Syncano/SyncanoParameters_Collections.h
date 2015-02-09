@@ -1,0 +1,1 @@
+../../../../syncano-ios/Syncano/Parameters/Collections/SyncanoParameters_Collections.h
