@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>38A1FA02-C6C3-45CC-875E-E25C787A29AC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SyncanoChat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DC9C176E5F2FEF4974F61D40ABC1FB9C0C0BBFBD</key>
+		<string>https://github.com/lifcio/SyncanoChat.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SyncanoChat/SyncanoChat.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DC9C176E5F2FEF4974F61D40ABC1FB9C0C0BBFBD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lifcio/SyncanoChat.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DC9C176E5F2FEF4974F61D40ABC1FB9C0C0BBFBD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DC9C176E5F2FEF4974F61D40ABC1FB9C0C0BBFBD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SyncanoChat</string>
+		</dict>
+	</array>
+</dict>
+</plist>

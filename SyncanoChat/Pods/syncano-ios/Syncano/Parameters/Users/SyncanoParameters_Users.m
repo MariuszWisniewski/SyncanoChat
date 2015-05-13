@@ -198,6 +198,8 @@
 
 @implementation SyncanoParameters_Users_Update
 
+@dynamic userId, userName;
+
 - (SyncanoParameters_Users_Update *)initWithCurrentPassword:(NSString *)currentPassword {
 	self = [super init];
 	if (self) {

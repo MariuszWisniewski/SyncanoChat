@@ -56,9 +56,9 @@
 
 // JSQMessagesViewController
 #define COCOAPODS_POD_AVAILABLE_JSQMessagesViewController
-#define COCOAPODS_VERSION_MAJOR_JSQMessagesViewController 6
-#define COCOAPODS_VERSION_MINOR_JSQMessagesViewController 1
-#define COCOAPODS_VERSION_PATCH_JSQMessagesViewController 3
+#define COCOAPODS_VERSION_MAJOR_JSQMessagesViewController 7
+#define COCOAPODS_VERSION_MINOR_JSQMessagesViewController 0
+#define COCOAPODS_VERSION_PATCH_JSQMessagesViewController 2
 
 // JSQSystemSoundPlayer
 #define COCOAPODS_POD_AVAILABLE_JSQSystemSoundPlayer
@@ -82,5 +82,5 @@
 #define COCOAPODS_POD_AVAILABLE_syncano_ios
 #define COCOAPODS_VERSION_MAJOR_syncano_ios 3
 #define COCOAPODS_VERSION_MINOR_syncano_ios 1
-#define COCOAPODS_VERSION_PATCH_syncano_ios 31
+#define COCOAPODS_VERSION_PATCH_syncano_ios 33
 

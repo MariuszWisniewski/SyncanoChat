@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "260C3A7950830BA5E072A55E"
+               BlueprintIdentifier = "6B522572C3DCCDBD51537E5C"
                BuildableName = "libPods-SyncanoChat-Mantle.a"
                BlueprintName = "Pods-SyncanoChat-Mantle"
                ReferencedContainer = "container:Pods.xcodeproj">

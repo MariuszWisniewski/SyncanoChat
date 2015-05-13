@@ -8,9 +8,9 @@
 
 #import "Syncano.h"
 #import "Syncano+Private.h"
+#import "SyncanoDefines.h"
 
 #import <AFNetworking/AFNetworking.h>
-//#import "Vendors/AFNetworking/AFNetworkActivityLogger/AFNetworkActivityLogger.h"
 
 NSInteger const kSyncanoMaxNumberOfRequestsInBatchCall = 10;
 
@@ -24,6 +24,9 @@ NSString *const multicallParamsKey = @"paramsKey";
 NSString *const userAgentKey = @"User-Agent";
 
 NSInteger const kSyncanoMaxNumberOfRequests = 2;
+
+NSString *const kSyncanoException = @"SyncanoException";
+NSString *const kSyncanoExceptionReasonNoMulticallParameters = @"No Multicall Parameters";
 
 @interface SyncanoParametersCallbackPair : NSObject
 @property (strong, nonatomic) SyncanoParameters *params;
@@ -63,6 +66,7 @@ NSInteger const kSyncanoMaxNumberOfRequests = 2;
 - (void)addAPIKeyToParameters:(SyncanoParameters *)params;
 - (void)addTimezoneToParameters:(SyncanoParameters *)params;
 - (void)addAuthKeyToParameters:(SyncanoParameters *)params;
+- (NSException *)exceptionForReason:(NSString *)reason;
 @end
 
 #pragma mark - Implementation
@@ -82,7 +86,11 @@ NSInteger const kSyncanoMaxNumberOfRequests = 2;
 }
 
 - (NSString *)serializeRequest:(NSURLRequest *)request parameters:(NSDictionary *)parameters error:(NSError **)error {
-	NSArray *multicallParameters = [parameters objectForKey:multicallParamsKey];
+    if (parameters == nil) {
+        NSException *noParamsException = [self exceptionForReason:kSyncanoExceptionReasonNoMulticallParameters];
+        [noParamsException raise];
+    }
+    NSArray *multicallParameters = [parameters objectForKey:multicallParamsKey];
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:multicallParameters options:NSJSONWritingPrettyPrinted error:error];
 	NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 	return jsonString;
@@ -134,6 +142,13 @@ NSInteger const kSyncanoMaxNumberOfRequests = 2;
 	if (params.authKey.length == 0) {
 		params.authKey = self.authKey;
 	}
+}
+
+- (NSException *)exceptionForReason:(NSString *)reason {
+    if (reason) {
+        return [NSException exceptionWithName:kSyncanoException reason:reason userInfo:nil];
+    }
+    return nil;
 }
 
 #pragma mark - Properties
@@ -443,23 +458,23 @@ NSInteger const kSyncanoMaxNumberOfRequests = 2;
                              operationManager:(AFHTTPRequestOperationManager *)operationManager
                                       success:(SyncanoBatchSuccess)success
                                       failure:(SyncanoFailure)failure {
-	if (params.count > kSyncanoMaxNumberOfRequestsInBatchCall) {
-		if (failure) failure(nil, nil);
-		return nil;
-	}
-	NSDictionary *batchParameters = [self parametersDictionaryForBatchRequestParameters:params];
-	operationManager.requestSerializer = self.batchRequestSerializer;
-	id <SyncanoRequest> request = [self pausedRequestWithOperationManager:operationManager params:batchParameters success: ^(AFHTTPRequestOperation *operation, id responseObject) {
-    NSArray *responses = [self syncanoResponsesFromBatchRequestResponseObject:responseObject requestParameters:params];
-    if (success) {
-      success(operation, responses);
-		}
-	} failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
-    if (failure) {
-      failure(operation, error);
-		}
-	}];
-	return request;
+    if (params.count > kSyncanoMaxNumberOfRequestsInBatchCall) {
+        if (failure) failure(nil, nil);
+        return nil;
+    }
+    NSDictionary *batchParameters = [self parametersDictionaryForBatchRequestParameters:params];
+    operationManager.requestSerializer = self.batchRequestSerializer;
+    id <SyncanoRequest> request = [self pausedRequestWithOperationManager:operationManager params:batchParameters success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *responses = [self syncanoResponsesFromBatchRequestResponseObject:responseObject requestParameters:params];
+        if (success) {
+            success(operation, responses);
+        }
+    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+    return request;
 }
 
 - (void)cancellAllRequests {
@@ -1354,7 +1369,7 @@ NSInteger const kSyncanoMaxNumberOfRequests = 2;
 @end
 
 NSString *const kDefaultLibraryName = @"syncano-ios";
-NSString *const KDefaultVersionNumber = @"3.1.31";
+NSString *const KDefaultVersionNumber = @"3.1.32";
 
 @implementation Syncano (Private)
 

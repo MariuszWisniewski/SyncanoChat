@@ -125,6 +125,8 @@
 
 @implementation SyncanoParameters_Subscriptions_Get : SyncanoParameters
 
+@dynamic sessionId;
+
 - (NSString *)methodName {
 	return @"subscription.get";
 }

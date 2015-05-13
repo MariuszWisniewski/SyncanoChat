@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FB36AC40E9ED1D17E71C76F"
+               BlueprintIdentifier = "FE522DA6A5E2F15AE099CC06"
                BuildableName = "libPods-SyncanoChat.a"
                BlueprintName = "Pods-SyncanoChat"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -30,16 +30,21 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
             NSUserDefaults.standardUserDefaults().setObject(self.userName, forKey: "userName")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
+        self.senderDisplayName = self.userName
+        self.senderId = self.userName
         
         let params = SyncanoParameters_DataObjects_Get(projectId: projectId, collectionId: self.collectionId)
         self.syncano .dataGet(params, callback: { response in
-            for object in response.data as [SyncanoData] {
-                if let senderId = object.additional?["senderId"] as String? {
-                    let message = JSQMessage(senderId: senderId, displayName: senderId, text: object.text)
-                    self.messages += [message]
+            if let messages = response.data {
+                for object in messages {
+                    let object = object as? SyncanoData
+                    if let senderId = object?.additional?["senderId"] as? String {
+                        let message = JSQMessage(senderId: senderId, displayName: senderId, text: object?.text)
+                        self.messages += [message]
+                    }
                 }
             }
-            self.collectionView.reloadData()
+            self.finishReceivingMessage()
         })
         self.syncServer.delegate = self
         self.syncServer.connect(nil);
@@ -48,15 +53,6 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    
-    func senderDisplayName() -> String! {
-        return self.userName
-    }
-    
-    func senderId() -> String! {
-        return self.userName
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
@@ -112,7 +108,7 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
     }
     
     func syncServer(syncServer: SyncanoSyncServer!, notificationAdded addedData: SyncanoData!, channel: SyncanoChannel!) {
-        if let senderId = addedData.additional?["senderId"] as String? {
+        if let senderId = addedData.additional?["senderId"] as? String {
             if senderId == self.senderId {
                 return;
             }
@@ -129,6 +125,14 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
             if (response.responseOK) {
             }
         }
+    }
+    
+    override func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        return super.textViewShouldEndEditing(textView);
+    }
+    
+    override func textViewDidEndEditing(textView: UITextView) {
+        super.textViewDidEndEditing(textView);
     }
 
 }

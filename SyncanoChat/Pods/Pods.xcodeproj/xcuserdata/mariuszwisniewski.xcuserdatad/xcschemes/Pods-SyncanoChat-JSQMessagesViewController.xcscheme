@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C68123C4410DA6FD6DB09EE"
+               BlueprintIdentifier = "63877FC68D77975F74ABAA84"
                BuildableName = "libPods-SyncanoChat-JSQMessagesViewController.a"
                BlueprintName = "Pods-SyncanoChat-JSQMessagesViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

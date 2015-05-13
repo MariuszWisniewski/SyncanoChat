@@ -7,6 +7,7 @@
 //
 
 #import "SyncanoDateFormatter.h"
+#import "SyncanoDefines.h"
 
 NSString *const SyncanoDateFormatter_DEFAULT_SYNCANO_DATE_FORMAT = @"yyyy-MM-dd'T'HH:mm";
 

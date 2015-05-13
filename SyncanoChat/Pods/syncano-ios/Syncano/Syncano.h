@@ -14,6 +14,8 @@
 #import "SyncanoReachability.h"
 
 extern NSInteger const kSyncanoMaxNumberOfRequestsInBatchCall;
+extern NSString *const kSyncanoException;
+extern NSString *const kSyncanoExceptionReasonNoMulticallParameters;
 
 typedef void (^SyncanoCallback)(SyncanoResponse *response);
 typedef void (^SyncanoSuccess)(id <SyncanoRequest> request, SyncanoResponse *response);
