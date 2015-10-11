@@ -19,7 +19,7 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
     let syncServer = SyncanoSyncServer(domain: "syncano-demo", apiKey: "5ed094cc48380a18b41beda32c62b7bb91321946")
     let projectId = "5811"
     let collectionId = "18345"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,8 +38,8 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
             if let messages = response.data {
                 for object in messages {
                     let object = object as? SyncanoData
-                    if let senderId = object?.additional?["senderId"] as? String {
-                        let message = JSQMessage(senderId: senderId, displayName: senderId, text: object?.text)
+                    if let senderId = object?.additional?["senderId"] as? String, text = object?.text {
+                        let message = JSQMessage(senderId: senderId, displayName: senderId, text: text)
                         self.messages += [message]
                     }
                 }
@@ -47,21 +47,24 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
             self.finishReceivingMessage()
         })
         self.syncServer.delegate = self
-        self.syncServer.connect(nil);
+        do {
+            try self.syncServer.connect()
+        } catch _ {
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        var data = self.messages[indexPath.row]
+        let data = self.messages[indexPath.row]
         return data
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
-        var data = self.messages[indexPath.row]
+        let data = self.messages[indexPath.row]
         if (data.senderId == self.senderId) {
             return self.outgoingBubble
         } else {
@@ -74,12 +77,12 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.messages.count;
+        return self.messages.count
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        let newMessage = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text);
-        self.sendMessageToSyncano(newMessage);
+        let newMessage = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
+        self.sendMessageToSyncano(newMessage)
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
@@ -104,13 +107,16 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
     }
     
     func syncServer(syncServer: SyncanoSyncServer!, connectionClosedWithError error: NSError!) {
-        self.syncServer.connect(nil);
+        do {
+            try self.syncServer.connect()
+        } catch _ {
+        }
     }
     
     func syncServer(syncServer: SyncanoSyncServer!, notificationAdded addedData: SyncanoData!, channel: SyncanoChannel!) {
         if let senderId = addedData.additional?["senderId"] as? String {
             if senderId == self.senderId {
-                return;
+                return
             }
             let message = JSQMessage(senderId: senderId, displayName: senderId, text: addedData.text)
             self.messages += [message]
@@ -128,11 +134,11 @@ class ViewController: JSQMessagesViewController, SyncanoSyncServerDelegate {
     }
     
     override func textViewShouldEndEditing(textView: UITextView) -> Bool {
-        return super.textViewShouldEndEditing(textView);
+        return super.textViewShouldEndEditing(textView)
     }
     
     override func textViewDidEndEditing(textView: UITextView) {
-        super.textViewDidEndEditing(textView);
+        super.textViewDidEndEditing(textView)
     }
-
+    
 }

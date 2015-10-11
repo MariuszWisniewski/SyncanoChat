@@ -8,6 +8,10 @@ To see how the app works, you don't need to register anywhere - please feel fry 
 
 If you you'd like to play with your own data, you can create your own Syncano account [here](https://login.syncano.com/sign_up). Once you have it, just replace instance name, API Keys and project/collection IDs with your own.
 
-I'm in a process of writing a blog post about the app - I'll link it here as soon as it's ready.
+Blog post about this version of the app can be found [here](https://www.syncano.io/ios-chat-app-jsqmessagesviewcontroller/).
+
+Last updated was done on Oct 10 2015, when I updated code to Swift 2.0 and fixed a bug.
+
+This version of the app runs on Syncano beta and won't be supported and fixed anymore, instead new version working on stable version of Syncano will be creted. 
 
 If you have any questions - contact me at [support@syncano.com](mailto:support@syncano.com).
