@@ -1,0 +1,1 @@
+../../../syncano-ios/syncano-ios/NSData+MimeType.h

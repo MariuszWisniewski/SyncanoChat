@@ -1,0 +1,36 @@
+#import <UIKit/UIKit.h>
+
+#import "NSData+MimeType.h"
+#import "NSObject+SCParseHelper.h"
+#import "SCAPIClient+Class.h"
+#import "SCAPIClient+SCDataObject.h"
+#import "SCAPIClient+SCFile.h"
+#import "SCAPIClient.h"
+#import "SCChannel.h"
+#import "SCChannelDelegate.h"
+#import "SCChannelNotificationMessage.h"
+#import "SCCodeBox.h"
+#import "SCCompoundPredicate.h"
+#import "SCConstants.h"
+#import "SCDataObject+Properties.h"
+#import "SCDataObject.h"
+#import "SCFile.h"
+#import "SCJSONResponseSerializer.h"
+#import "SCMacros.h"
+#import "SCParseManager+SCDataObject.h"
+#import "SCParseManager+SCUser.h"
+#import "SCParseManager.h"
+#import "SCPlease.h"
+#import "SCPredicate.h"
+#import "SCPredicateProtocol.h"
+#import "SCSchema.h"
+#import "SCTrace.h"
+#import "SCUser.h"
+#import "SCUserProfile.h"
+#import "SCWebhook.h"
+#import "SCWebhookResponseObject.h"
+#import "Syncano.h"
+
+FOUNDATION_EXPORT double syncano_iosVersionNumber;
+FOUNDATION_EXPORT const unsigned char syncano_iosVersionString[];
+

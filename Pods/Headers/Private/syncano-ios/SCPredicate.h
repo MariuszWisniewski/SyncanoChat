@@ -1,0 +1,1 @@
+../../../syncano-ios/syncano-ios/SCPredicate.h

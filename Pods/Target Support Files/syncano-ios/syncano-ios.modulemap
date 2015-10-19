@@ -1,0 +1,6 @@
+framework module syncano_ios {
+  umbrella header "syncano-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

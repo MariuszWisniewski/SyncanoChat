@@ -15,6 +15,7 @@
 		15AA2F1A1BD59438004CDC2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15AA2F181BD59438004CDC2C /* LaunchScreen.storyboard */; };
 		15AA2F251BD59439004CDC2C /* SyncanoChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F241BD59439004CDC2C /* SyncanoChatTests.swift */; };
 		15AA2F301BD59439004CDC2C /* SyncanoChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F2F1BD59439004CDC2C /* SyncanoChatUITests.swift */; };
+		FCBB8EB0800C00AB14782ADE /* Pods_SyncanoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1131DC51CDEC1041C11B8E /* Pods_SyncanoChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,9 @@
 		15AA2F2B1BD59439004CDC2C /* SyncanoChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncanoChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15AA2F2F1BD59439004CDC2C /* SyncanoChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncanoChatUITests.swift; sourceTree = "<group>"; };
 		15AA2F311BD59439004CDC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		552079422ECC32C3D6EFCB98 /* Pods-SyncanoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyncanoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SyncanoChat/Pods-SyncanoChat.debug.xcconfig"; sourceTree = "<group>"; };
+		6CCB693598810DB675AFF1D2 /* Pods-SyncanoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyncanoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SyncanoChat/Pods-SyncanoChat.release.xcconfig"; sourceTree = "<group>"; };
+		EC1131DC51CDEC1041C11B8E /* Pods_SyncanoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyncanoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBB8EB0800C00AB14782ADE /* Pods_SyncanoChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,8 @@
 				15AA2F231BD59439004CDC2C /* SyncanoChatTests */,
 				15AA2F2E1BD59439004CDC2C /* SyncanoChatUITests */,
 				15AA2F0A1BD59438004CDC2C /* Products */,
+				F29F6C534CA31C5C3A919559 /* Pods */,
+				EDD5C8F807FF0359A0F99E0C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,23 @@
 			path = SyncanoChatUITests;
 			sourceTree = "<group>";
 		};
+		EDD5C8F807FF0359A0F99E0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC1131DC51CDEC1041C11B8E /* Pods_SyncanoChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F29F6C534CA31C5C3A919559 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				552079422ECC32C3D6EFCB98 /* Pods-SyncanoChat.debug.xcconfig */,
+				6CCB693598810DB675AFF1D2 /* Pods-SyncanoChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15AA2F341BD59439004CDC2C /* Build configuration list for PBXNativeTarget "SyncanoChat" */;
 			buildPhases = (
+				C6BE0593E39F1DBCCA903978 /* Check Pods Manifest.lock */,
 				15AA2F051BD59438004CDC2C /* Sources */,
 				15AA2F061BD59438004CDC2C /* Frameworks */,
 				15AA2F071BD59438004CDC2C /* Resources */,
+				E187E7D7EC2E05C9806D15FA /* Embed Pods Frameworks */,
+				DA173A24DB9D7FF859A64F69 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +279,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C6BE0593E39F1DBCCA903978 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA173A24DB9D7FF859A64F69 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SyncanoChat/Pods-SyncanoChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E187E7D7EC2E05C9806D15FA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SyncanoChat/Pods-SyncanoChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15AA2F051BD59438004CDC2C /* Sources */ = {
@@ -400,6 +475,7 @@
 		};
 		15AA2F351BD59439004CDC2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 552079422ECC32C3D6EFCB98 /* Pods-SyncanoChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SyncanoChat/Info.plist;
@@ -411,6 +487,7 @@
 		};
 		15AA2F361BD59439004CDC2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CCB693598810DB675AFF1D2 /* Pods-SyncanoChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SyncanoChat/Info.plist;
@@ -487,6 +564,7 @@
 				15AA2F361BD59439004CDC2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15AA2F371BD59439004CDC2C /* Build configuration list for PBXNativeTarget "SyncanoChatTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +573,7 @@
 				15AA2F391BD59439004CDC2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15AA2F3A1BD59439004CDC2C /* Build configuration list for PBXNativeTarget "SyncanoChatUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +582,7 @@
 				15AA2F3C1BD59439004CDC2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
