@@ -10,22 +10,26 @@ import UIKit
 import JSQMessagesViewController
 import syncano_ios
 
-let syncanoChannelName = "message"
-
 class ViewController: JSQMessagesViewController {
     
-    let syncano = Syncano.sharedInstanceWithApiKey("81374dbee9b4293f6f556942fbcb1dab203d0b0f", instanceName: "syncano-chat-app")
     let channel = SCChannel(name: syncanoChannelName)
     
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
     var messages = [JSQMessage]()
+    
+    let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(loginViewControllerIdentifier) as! LoginViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.setup()
         self.downloadNewestMessagesFromSyncano()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.showLoginViewControllerIfNotLoggedIn()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,31 +40,33 @@ class ViewController: JSQMessagesViewController {
     func reloadMessagesView() {
         self.collectionView?.reloadData()
     }
+    
+    func reloadAllMessages() {
+        self.messages = []
+        self.reloadMessagesView()
+        self.downloadNewestMessagesFromSyncano()
+    }
 }
 
 //MARK - Setup
 extension ViewController {
-    func addDemoMessages() {
-        for i in 1...10 {
-            let sender = (i%2 == 0) ? "Server" : self.senderId
-            let messageContent = "Message nr. \(i)"
-            let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
-            self.messages += [message]
-        }
-        self.reloadMessagesView()
-    }
-    
     func setup() {
-        self.senderId = UIDevice.currentDevice().identifierForVendor?.UUIDString
-        self.senderDisplayName = UIDevice.currentDevice().identifierForVendor?.UUIDString
+        self.title = "Syncano ChatApp"
+        self.setupSenderData()
         self.channel.delegate = self
         self.channel.subscribeToChannel()
+        self.loginViewController.delegate = self
+    }
+    
+    func setupSenderData() {
+        let sender = (SCUser.currentUser() != nil) ? SCUser.currentUser().username : ""
+        self.senderId = sender
+        self.senderDisplayName = sender
     }
 }
 
 //MARK - Data Source
 extension ViewController {
-    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.messages.count
     }
@@ -86,6 +92,22 @@ extension ViewController {
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        let data = self.collectionView(self.collectionView, messageDataForItemAtIndexPath: indexPath)
+        if (self.senderDisplayName == data.senderDisplayName()) {
+            return nil
+        }
+        return NSAttributedString(string: data.senderDisplayName())
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        let data = self.collectionView(self.collectionView, messageDataForItemAtIndexPath: indexPath)
+        if (self.senderDisplayName == data.senderDisplayName()) {
+            return 0.0
+        }
+        return kJSQMessagesCollectionViewCellLabelHeightDefault
     }
 }
 
@@ -174,5 +196,56 @@ extension ViewController : SCChannelDelegate {
         default:
             break
         }
+    }
+}
+
+//MARK - Login Logic
+extension ViewController : LoginDelegate {
+    func didSignUp() {
+        self.prepareAppForNewUser()
+        self.hideLoginViewController()
+        
+    }
+    
+    func didLogin() {
+        self.prepareAppForNewUser()
+        self.hideLoginViewController()
+    }
+    
+    func prepareAppForNewUser() {
+        self.setupSenderData()
+        self.reloadAllMessages()
+    }
+    
+    func isLoggedIn() -> Bool {
+        let isLoggedIn = (SCUser.currentUser() != nil)
+        return isLoggedIn
+    }
+    
+    func logout() {
+        SCUser.currentUser()?.logout()
+    }
+    
+    func showLoginViewController() {
+        self.presentViewController(self.loginViewController, animated: true) {
+            
+        }
+    }
+    
+    func hideLoginViewController() {
+        self.dismissViewControllerAnimated(true) {
+            
+        }
+    }
+    
+    func showLoginViewControllerIfNotLoggedIn() {
+        if (self.isLoggedIn() == false) {
+            self.showLoginViewController()
+        }
+    }
+    
+    @IBAction func logoutPressed(sender: UIBarButtonItem) {
+        self.logout()
+        self.showLoginViewControllerIfNotLoggedIn()
     }
 }

@@ -16,6 +16,8 @@
 		15AA2F251BD59439004CDC2C /* SyncanoChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F241BD59439004CDC2C /* SyncanoChatTests.swift */; };
 		15AA2F301BD59439004CDC2C /* SyncanoChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F2F1BD59439004CDC2C /* SyncanoChatUITests.swift */; };
 		15AA2F3E1BD59A70004CDC2C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F3D1BD59A70004CDC2C /* Message.swift */; settings = {ASSET_TAGS = (); }; };
+		15AA2F401BD5A2AF004CDC2C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F3F1BD5A2AF004CDC2C /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
+		15AA2F421BD5A30E004CDC2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA2F411BD5A30E004CDC2C /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		FCBB8EB0800C00AB14782ADE /* Pods_SyncanoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1131DC51CDEC1041C11B8E /* Pods_SyncanoChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		15AA2F2F1BD59439004CDC2C /* SyncanoChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncanoChatUITests.swift; sourceTree = "<group>"; };
 		15AA2F311BD59439004CDC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15AA2F3D1BD59A70004CDC2C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		15AA2F3F1BD5A2AF004CDC2C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		15AA2F411BD5A30E004CDC2C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		552079422ECC32C3D6EFCB98 /* Pods-SyncanoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyncanoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SyncanoChat/Pods-SyncanoChat.debug.xcconfig"; sourceTree = "<group>"; };
 		6CCB693598810DB675AFF1D2 /* Pods-SyncanoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyncanoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SyncanoChat/Pods-SyncanoChat.release.xcconfig"; sourceTree = "<group>"; };
 		EC1131DC51CDEC1041C11B8E /* Pods_SyncanoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyncanoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +114,9 @@
 			children = (
 				15AA2F0C1BD59438004CDC2C /* AppDelegate.swift */,
 				15AA2F0E1BD59438004CDC2C /* ViewController.swift */,
+				15AA2F411BD5A30E004CDC2C /* LoginViewController.swift */,
 				15AA2F3D1BD59A70004CDC2C /* Message.swift */,
+				15AA2F3F1BD5A2AF004CDC2C /* Settings.swift */,
 				15AA2F101BD59438004CDC2C /* Main.storyboard */,
 				15AA2F161BD59438004CDC2C /* Assets.xcassets */,
 				15AA2F181BD59438004CDC2C /* LaunchScreen.storyboard */,
@@ -336,10 +342,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15AA2F421BD5A30E004CDC2C /* LoginViewController.swift in Sources */,
 				15AA2F0F1BD59438004CDC2C /* ViewController.swift in Sources */,
 				15AA2F3E1BD59A70004CDC2C /* Message.swift in Sources */,
 				15AA2F0D1BD59438004CDC2C /* AppDelegate.swift in Sources */,
 				15AA2F151BD59438004CDC2C /* SyncanoChat.xcdatamodeld in Sources */,
+				15AA2F401BD5A2AF004CDC2C /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

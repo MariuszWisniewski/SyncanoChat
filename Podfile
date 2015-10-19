@@ -4,15 +4,15 @@
 use_frameworks!
 
 target 'SyncanoChat' do
-pod 'syncano-ios'
-pod 'JSQMessagesViewController'
-
+    pod 'syncano-ios'
+    pod 'JSQMessagesViewController'
+    pod 'IQKeyboardManagerSwift'
 end
 
 target 'SyncanoChatTests' do
-
+    
 end
 
 target 'SyncanoChatUITests' do
-
+    
 end

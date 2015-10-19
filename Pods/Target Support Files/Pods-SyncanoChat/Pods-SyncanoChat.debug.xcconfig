@@ -1,6 +1,8 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JSQMessagesViewController.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JSQSystemSoundPlayer.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Mantle.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/UICKeyChainStore.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/syncano_ios.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "JSQMessagesViewController" -framework "JSQSystemSoundPlayer" -framework "Mantle" -framework "UICKeyChainStore" -framework "syncano_ios"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/IQKeyboardManagerSwift.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JSQMessagesViewController.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JSQSystemSoundPlayer.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Mantle.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/UICKeyChainStore.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/syncano_ios.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "IQKeyboardManagerSwift" -framework "JSQMessagesViewController" -framework "JSQSystemSoundPlayer" -framework "Mantle" -framework "UICKeyChainStore" -framework "syncano_ios"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-SyncanoChat
 PODS_ROOT = ${SRCROOT}/Pods

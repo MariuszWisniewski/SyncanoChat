@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-SyncanoChat/AFNetworking.framework"
+  install_framework "Pods-SyncanoChat/IQKeyboardManagerSwift.framework"
   install_framework "Pods-SyncanoChat/JSQMessagesViewController.framework"
   install_framework "Pods-SyncanoChat/JSQSystemSoundPlayer.framework"
   install_framework "Pods-SyncanoChat/Mantle.framework"
@@ -93,6 +94,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-SyncanoChat/AFNetworking.framework"
+  install_framework "Pods-SyncanoChat/IQKeyboardManagerSwift.framework"
   install_framework "Pods-SyncanoChat/JSQMessagesViewController.framework"
   install_framework "Pods-SyncanoChat/JSQSystemSoundPlayer.framework"
   install_framework "Pods-SyncanoChat/Mantle.framework"
