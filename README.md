@@ -1,6 +1,6 @@
 # Intro
 
-This is a simple chat app running on [Syncano](http://www.syncano.io).
+This is a simple chat app running on [Syncano](http://www.syncano.io/?utm_source=github&utm_medium=readme&utm_campaign=ios-chat-app).
 
 It uses [JSQMessagesViewController](https://github.com/jessesquires/JSQMessagesViewController/) framework and [syncano-ios](https://github.com/Syncano/syncano-ios) library.
 
