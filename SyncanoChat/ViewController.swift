@@ -14,7 +14,7 @@ let syncanoChannelName = "message"
 
 class ViewController: JSQMessagesViewController {
     
-    let syncano = Syncano.sharedInstanceWithApiKey("81374dbee9b4293f6f556942fbcb1dab203d0b0f", instanceName: "syncano-chat-app")
+    let syncano = Syncano.sharedInstanceWithApiKey("", instanceName: "")
     let channel = SCChannel(name: syncanoChannelName)
     
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor(red: 10/255, green: 180/255, blue: 230/255, alpha: 1.0))
