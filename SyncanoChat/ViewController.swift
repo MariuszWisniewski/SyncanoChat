@@ -10,7 +10,7 @@ import UIKit
 import JSQMessagesViewController
 import syncano_ios
 
-let syncanoChannelName = "message"
+let syncanoChannelName = "messages"
 
 class ViewController: JSQMessagesViewController {
     
