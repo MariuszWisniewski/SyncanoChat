@@ -8,4 +8,4 @@
 
 let syncanoApiKey = ""
 let syncanoInstanceName = ""
-let syncanoChannelName = "message"
+let syncanoChannelName = "messages"
