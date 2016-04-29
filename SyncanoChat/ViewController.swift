@@ -143,7 +143,7 @@ extension ViewController {
     
     func downloadNewestMessagesFromSyncano() {
         Message.please().giveMeDataObjectsWithCompletion { objects, error in
-            if let messages = objects as? [Message]! {
+            if let messages = objects as? [Message] {
                 self.messages = self.jsqMessagesFromSyncanoMessages(messages)
                 self.finishReceivingMessage()
             }
